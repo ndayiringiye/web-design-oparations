@@ -1,26 +1,27 @@
-import { useState, useEffect } from 'react';
 import { Star } from 'lucide-react';
-
+import first from "../../public/images/first.png";
+import second from "../../public/images/second.png";
+import third from "../../public/images/third.png"
 export default function TestimonialsSection() {
   const testimonials = [
     {
       id: 1,
       name: "Greg House",
-      image: "/api/placeholder/120/120",
+      image: {first},
       rating: 5,
       text: "I Had A Session With William And Was Amazed! He's Creative And Made Me Feel At Ease. The Stunning Photos Far Exceeded My Expectations. Highly Recommend For A Professional Experience!"
     },
     {
       id: 2,
       name: "Emily Thompson",
-      image: "/api/placeholder/120/120",
+      image: {second},
       rating: 5,
       text: "William Is An Outstanding Photographer! He Made Our Engagement Shoot Perfect, Showing Great Attention To Detail. The Photos Are Magazine-Quality. Highly Recommend For Anyone Seeking Excellence!"
     },
     {
       id: 3,
       name: "James Anderson",
-      image: "/api/placeholder/120/120",
+      image: {third},
       rating: 5,
       text: "Working With William Was Great! He Captures Candid Moments Beautifully. The Family Photos He Took Were Breathtaking And Captured Our Essence. Definitely A Five-Star Experience!"
     }
@@ -40,7 +41,7 @@ export default function TestimonialsSection() {
               <div className="absolute -top-12 -left-4 w-24 h-24">
                 <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-purple-500">
                   <img 
-                    src={testimonials[0].image} 
+                    src={first} 
                     alt={testimonials[0].name}
                     className="w-full h-full object-cover" 
                   />
@@ -65,14 +66,12 @@ export default function TestimonialsSection() {
               <p className="font-semibold text-sm">{testimonials[0].name}</p>
             </div>
           </div>
-          
-          {/* Middle testimonial - animated entry with delay */}
           <div className="w-full md:w-1/3 p-4 md:mt-12 transform transition-all duration-700 animate-fade-in-up">
             <div className="relative bg-gray-800/40 rounded-3xl p-8 h-full">
               <div className="absolute -top-12 left-0 right-0 mx-auto w-24 h-24 flex justify-center">
                 <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-purple-500">
                   <img 
-                    src={testimonials[1].image} 
+                    src={second} 
                     alt={testimonials[1].name}
                     className="w-full h-full object-cover" 
                   />
@@ -97,20 +96,17 @@ export default function TestimonialsSection() {
               <p className="font-semibold text-sm">{testimonials[1].name}</p>
             </div>
           </div>
-          
-          {/* Right testimonial - animated entry */}
           <div className="w-full md:w-1/3 p-4 transform transition-all duration-700 animate-fade-in-right">
             <div className="relative bg-gray-800/40 rounded-3xl p-8 h-full">
               <div className="absolute -top-12 -right-4 w-24 h-24 flex justify-end">
                 <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-purple-500">
                   <img 
-                    src={testimonials[2].image} 
+                    src={third} 
                     alt={testimonials[2].name}
                     className="w-full h-full object-cover" 
                   />
                 </div>
               </div>
-              
               <div className="mt-10 mb-4">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
@@ -123,7 +119,6 @@ export default function TestimonialsSection() {
                   ))}
                 </div>
               </div>
-              
               <p className="text-gray-300 text-sm mb-6">{testimonials[2].text}</p>
               
               <p className="font-semibold text-sm">{testimonials[2].name}</p>
@@ -135,7 +130,6 @@ export default function TestimonialsSection() {
   );
 }
 
-// Define the animations using CSS keyframes with Tailwind classes
 const style = document.createElement('style');
 style.textContent = `
   @keyframes fadeInLeft {
